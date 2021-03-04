@@ -1,16 +1,26 @@
 const http = require('http') // http a core model that launchs a server , sends a request 
-
+const fs = require('fs')
 // function reqListner(req, res){
 
 // }
 
 const server = http.createServer((req, res) => {    // creates a server
     const url = req.url
+    const method = req.method
     if(url === '/'){
         res.write('<html>')
-        res.write('<body><h1>Main Page</h1></body>')
+        res.write('<body>')
+        res.write('<h1>Main Page</h1>')
+        res.write('<form action="/message" method="POST"> <input type="text" name="message"></input><button>Submit</button></form> ')
+        res.write('</body>')
         res.write('</html>')
         return res.end() // adding return will stop and prevent other code to be excuted 
+    }
+    if(url === '/message' && method === 'POST'){
+        fs.writeFileSync('message.txt', 'Message')
+        res.statusCode = 302
+        res.setHeader('Location', '/')
+        return res.end()
     }
     res.setHeader('Content-Type', 'text/html')
     res.write('<html>')
@@ -30,3 +40,4 @@ server.listen(3000)
 // How to write a server and how to spin it 
 // setting headers 
 // Routing 
+// Redirecting Requests

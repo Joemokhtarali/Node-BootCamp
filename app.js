@@ -17,7 +17,17 @@ const server = http.createServer((req, res) => {    // creates a server
         return res.end() // adding return will stop and prevent other code to be excuted 
     }
     if(url === '/message' && method === 'POST'){
-        fs.writeFileSync('message.txt', 'Message')
+        const body = []
+        req.on('data', (chunk) => {
+            console.log(chunk)
+            body.push(chunk)
+        })
+        req.on('end', () => {
+            const parsedBody = Buffer.concat(body).toString()
+            // console.log(parsedBody);
+            const message = parsedBody.split('=')[1]
+            fs.writeFileSync('message.txt', 'Message')
+        })
         res.statusCode = 302
         res.setHeader('Location', '/')
         return res.end()
@@ -41,3 +51,4 @@ server.listen(3000)
 // setting headers 
 // Routing 
 // Redirecting Requests
+// Parsing Request Bodies

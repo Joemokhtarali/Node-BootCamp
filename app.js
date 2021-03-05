@@ -1,6 +1,17 @@
 const http = require('http') // http a core model that launchs a server , sends a request 
 const express = require('express')
 const app = express ()
+
+app.use((req, res, next) => {
+    console.log('In the middleware!')
+    next() // Allows the request to continue to the next middleware in Line 
+})
+
+app.use((req, res, next) => {
+    console.log('In the middleware!')
+    res.send('<h1>Hello</h1>'); // we could send HTML tags 
+
+})
 // function reqListner(req, res){
 
 // }
@@ -10,7 +21,7 @@ const app = express ()
 //     // process.exit()  
 // })  
 const server = http.createServer(app)
-
+ 
 server.listen(3000)
 // 
 // node app.js to spin a server 

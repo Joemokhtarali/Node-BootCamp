@@ -1,5 +1,6 @@
 const http = require('http') // http a core model that launchs a server , sends a request 
-const routes = require('./routes')
+const express = require('express')
+const app = express ()
 // function reqListner(req, res){
 
 // }
@@ -8,7 +9,7 @@ const routes = require('./routes')
 //     routes
 //     // process.exit()  
 // })  
-const server = http.createServer(routes)
+const server = http.createServer(app)
 
 server.listen(3000)
 // 
@@ -25,3 +26,8 @@ server.listen(3000)
 // using the Node Modules system 
 // introducing NPM  npm init  && add script:  "start": "node app.js"
 // adding 3rd party package, npm i nodemon --save-dev => change start script to "nodemon app.js"
+
+//                  Express
+// get rid of Routes.js
+// npm install express --save
+// import express = require('express')

@@ -21,6 +21,7 @@ server.listen(3000)
 // setting headers 
 // Routing 
 // Redirecting Requests
-// Parsing Request Bodies
+// Parsing Request Bodies 
 // using the Node Modules system 
 // introducing NPM  npm init  && add script:  "start": "node app.js"
+// adding 3rd party package, npm i nodemon --save-dev => change start script to "nodemon app.js"

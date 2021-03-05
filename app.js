@@ -12,6 +12,11 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(adminRoutes)
 app.use(shopRoutes)
 
+app.use((res, req, next) => {
+    res.status(404).send('<h1>Page not found</h1>')
+    // res(app.use(routes)).get('/').end() 
+})
+
 
 
 // function reqListner(req, res){
@@ -53,3 +58,6 @@ app.listen(3000); // creates server
 // import body-parser and npm i --save body-parser 
 
 // editing middlewares, instead of app.use => app.get() for get requests && app.post of Post requests 
+// handling get & post requests by creating routes folder & sending express.Router()
+
+// handling 404 errors => 

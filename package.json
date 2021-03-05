@@ -1,0 +1,20 @@
+{
+  "name": "node-bootcamp",
+  "version": "1.0.0",
+  "description": "complete node bootcamp",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joemokhtarali/Node-BootCamp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Joemokhtarali/Node-BootCamp/issues"
+  },
+  "homepage": "https://github.com/Joemokhtarali/Node-BootCamp#readme"
+}

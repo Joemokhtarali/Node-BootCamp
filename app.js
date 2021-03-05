@@ -1,27 +1,19 @@
+const adminRoutes = require('./routes/admin')
+const shopRoutes = require('./routes/shop')
 // const http = require("http"); // http a core model that launchs a server , sends a request
 const express = require("express");
+
 const bodyParser = require("body-parser");
+
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.use("/add-product", (req, res, next) => {
-  // res.send('<h1> Add Product</h1>'); // we could send HTML tags, files, or functions
-  res.send(
-    '<form action="/product" method="POST"><input type="text" name="title"><button type="submit" >Add Product</button></input></form>'
-  );
-  // next() // Allows the request to continue to the next middleware in Line
-  // don't call next to other routes
-});
+app.use(adminRoutes)
+app.use(shopRoutes)
 
-app.use("/product", (req, res, next) => {
-  console.log(req.body);
-  res.redirect("/");
-});
 
-app.use("/", (req, res, next) => {
-  res.send("<h1>Main Page</h1>"); // we could send HTML tags, files, or functions
-});
+
 // function reqListner(req, res){
 
 // }
@@ -58,3 +50,6 @@ app.listen(3000); // creates server
 // handling different routes using express :
 
 // to install a parser for the body => npm i --save body-parser
+// import body-parser and npm i --save body-parser 
+
+// editing middlewares, instead of app.use => app.get() for get requests && app.post of Post requests 

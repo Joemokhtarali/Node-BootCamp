@@ -18,6 +18,9 @@ app.use((req, res, next) => {
     // res(app.use(routes)).get('/').end() 
 })
 
+app.set('view engine' , 'pug')
+app.set('views' , 'views')
+
 
 
 // function reqListner(req, res){
@@ -62,3 +65,9 @@ app.listen(3000); // creates server
 // handling get & post requests by creating routes folder & sending express.Router()
 
 // handling 404 errors => 
+
+
+// npm i --save ejs pug express-handlebars 
+// pug package to render dynamic templets => app.set('view engine' , 'pug') && app.get()
+// creating pug pages and using render 
+// app.render

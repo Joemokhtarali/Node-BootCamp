@@ -1,4 +1,4 @@
-const adminRoutes = require('./routes/admin')
+const adminData = require('./routes/admin')
 const shopRoutes = require('./routes/shop')
 // const http = require("http"); // http a core model that launchs a server , sends a request
 const express = require("express");
@@ -10,7 +10,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
 
-app.use(adminRoutes)
+app.use(adminData.routes)
 app.use(shopRoutes)
 
 app.use((req, res, next) => {

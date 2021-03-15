@@ -12,6 +12,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(adminData.routes)
 app.use(shopRoutes)
+app.use(express.static(path.join(__dirname, 'public'))); // for CSS
+
 
 app.use((req, res, next) => {
     res.status(404).render('404', {pageTitle: 'Page Not Found'})

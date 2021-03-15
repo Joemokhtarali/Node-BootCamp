@@ -71,3 +71,11 @@ app.listen(3000); // creates server
 // pug package to render dynamic templets => app.set('view engine' , 'pug') && app.get()
 // creating pug pages and using render 
 // app.render
+
+//layouts => create a layout folder, main-layout.pug .. element that are dynamic use 'block' for hooks  -> styles && content block content 
+// remove all and add: extends layouts/main-layout.pug 
+// block content && indent and add ur code  
+// npm install --save express-handlebars@3.0
+// handlebars => change to app.js 
+// const expressHbs = require('express-handlebars')
+// app.engine('handlebars', expressHbs()) expressHbs is a function 
